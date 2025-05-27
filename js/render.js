@@ -1,14 +1,14 @@
-function renderCategory(categories) {
+function renderCategoriesList(categories) {
+  const categoryType = categories[0].type
   const elems = {
     income: document.querySelector('#container-income-list'),
     expense: document.querySelector('#container-outcome-list'),
   }
-  elems.income.innerHTML = ''
-  elems.expense.innerHTML = ''
+  elems[categoryType].innerHTML = ''
   for (const category of categories) {
     const elLi = generateLiCategory(category)
-    elems[category.type].appendChild(elLi)
-    console.log(elems[category.type])
+    elems[categoryType].appendChild(elLi)
+    console.log(category.type)
   }
 }
 function renderSpanIncome(number) {
