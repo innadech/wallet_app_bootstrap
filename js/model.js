@@ -1,7 +1,6 @@
 let transactionHistory = []
-let categories = []
 let incomeCategories = []
-let expenseCategories = []
+let outcomeCategories = []
 
 let nextId = 1
 
@@ -9,7 +8,7 @@ const income = {
   amount: 0,
   category: '',
 }
-const expense = {
+const outcome = {
   amount: 0,
   category: '',
 }
@@ -23,12 +22,12 @@ function creteTransactionFromIncome(income) {
   }
 }
 
-function creteTransactionFromExpense(expense) {
+function creteTransactionFromOutcome(outcome) {
   return {
     id: nextId++,
-    type: 'expense',
-    amount: expense.amount,
-    category: expense.category,
+    type: 'outcome',
+    amount: outcome.amount,
+    category: outcome.category,
   }
 }
 
@@ -38,32 +37,32 @@ function setAmountIncome(amount) {
 function setCategoryIncome(category) {
   income.category = category
 }
-function setAmountExpense(amount) {
-  expense.amount = amount
+function setAmountOutcome(amount) {
+  outcome.amount = amount
 }
-function setCategoryExpense(category) {
-  expense.category = category
+function setCategoryOutcome(category) {
+  outcome.category = category
 }
 function addTransactionnFromIncome(income) {
   const transaction = creteTransactionFromIncome(income)
   transactionHistory.push(transaction)
 }
-function addTransactionnFromExpense(expense) {
-  const transaction = creteTransactionFromExpense(expense)
+function addTransactionnFromOutcome(outcome) {
+  const transaction = creteTransactionFromOutcome(outcome)
   transactionHistory.push(transaction)
 }
 
 function getSumAmountByType() {
   let amountIncome = 0
-  let amountExpense = 0
+  let amountOutcome = 0
   transactionHistory.forEach(history => {
     if (history.type === 'income') {
       amountIncome += history.amount
     } else {
-      amountExpense += history.amount
+      amountOutcome += history.amount
     }
   })
-  return [amountIncome, amountExpense]
+  return [amountIncome, amountOutcome]
 }
 
 function createCategory(caption, type) {
@@ -85,20 +84,20 @@ function addCategoryIncome(caption, type) {
   incomeCategories.push(category)
 }
 
-function addCategoryExpense(caption, type) {
-  const existingCategory = expenseCategories.find(
+function addCategoryOutcome(caption, type) {
+  const existingCategory = outcomeCategories.find(
     category => category.caption === caption
   )
   if (existingCategory) {
     return
   }
   const category = createCategory(caption, type)
-  expenseCategories.push(category)
+  outcomeCategories.push(category)
 }
 
 function getBalance() {
-  const [incomeSum, expenseSum] = getSumAmountByType()
-  return incomeSum - expenseSum
+  const [incomeSum, outcomeSum] = getSumAmountByType()
+  return incomeSum - outcomeSum
 }
 
 function removeTransactionById(id) {
@@ -109,6 +108,6 @@ function removeTransactionById(id) {
 function removeCategoryByIdIncome(id) {
   incomeCategories = incomeCategories.filter(category => category.id !== id)
 }
-function removeCategoryByIdExpense(id) {
-  expenseCategories = expenseCategories.filter(category => category.id !== id)
+function removeCategoryByIdOutcome(id) {
+  outcomeCategories = outcomeCategories.filter(category => category.id !== id)
 }

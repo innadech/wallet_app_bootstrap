@@ -1,20 +1,20 @@
-const elExpenseButtonAdd = document.querySelector('#expenseadd')
+const elOutcomeButtonAdd = document.querySelector('#expenseadd')
 const elIncomeButtonAdd = document.querySelector('#incomeadd')
 const elButtonAddOptionIncome = document.querySelector('#addOptionIncomeButton')
 const elButtonAddOptionExpense = document.querySelector(
   '#addOptionExpenseButton'
 )
 const elSelectIncome = document.querySelector('#income')
-const elSelectExpense = document.querySelector('#expense')
+const elSelectExpense = document.querySelector('#outcome')
 const elInputBoxIncome = document.querySelector('#incomeamount')
 const elInputBoxExpense = document.querySelector('#expenseamount')
 
 elSelectIncome.onchange = onChangeSelectIncome
-elSelectExpense.onchange = onChangeSelectExpense
+elSelectExpense.onchange = onChangeSelectOutcome
 elInputBoxIncome.oninput = onInputInputIncome
-elInputBoxExpense.oninput = onInputInputExpense
+elInputBoxExpense.oninput = onInputInputOutcome
 
-elExpenseButtonAdd.onclick = onClickButtonAddTransactionExpense
+elOutcomeButtonAdd.onclick = onClickButtonAddTransactionOutcome
 elIncomeButtonAdd.onclick = onClickButtonAddTransactionIncome
 elButtonAddOptionIncome.onclick = onClickButtonAddOptionIncome
-elButtonAddOptionExpense.onclick = onClickButtonAddOptionExpense
+elButtonAddOptionExpense.onclick = onClickButtonAddOptionOutcome

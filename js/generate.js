@@ -36,7 +36,10 @@ function generateLiTransaction(transaction) {
   elLi.setAttribute('data-id', transaction.id)
   elLi.classList.add(transaction.type)
   elLi.classList.add('list-group-item')
-  elLi.classList.add('list-group-item-success')
+  if (transaction.type === 'income') {
+    elLi.classList.add('list-group-item-success')
+  } else elLi.classList.add('list-group-item-danger')
+
   elButton.classList.add('btn-close')
   elButton.setAttribute('type', 'button')
   elButton.setAttribute('aria-label', 'Close')

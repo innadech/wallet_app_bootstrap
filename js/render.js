@@ -2,7 +2,7 @@ function renderCategoriesList(categories) {
   const categoryType = categories[0].type
   const elems = {
     income: document.querySelector('#container-income-list'),
-    expense: document.querySelector('#container-outcome-list'),
+    outcome: document.querySelector('#container-outcome-list'),
   }
   elems[categoryType].innerHTML = ''
   for (const category of categories) {
@@ -11,7 +11,7 @@ function renderCategoriesList(categories) {
     console.log(category.type)
   }
 }
-function renderSpanIncome(number) {
+function renderBalance(number) {
   const elSpan = document.querySelector('#balance')
   elSpan.innerHTML = 'Balance' + ':' + '$' + number
 }
@@ -23,8 +23,8 @@ function renderTransactionHistory(transactions) {
       const elGenerateIncome = generateLiTransaction(transaction)
       elTransactionHistory.appendChild(elGenerateIncome)
     } else {
-      const elGenerateExpense = generateLiTransaction(transaction)
-      elTransactionHistory.appendChild(elGenerateExpense)
+      const elGenerateOutcome = generateLiTransaction(transaction)
+      elTransactionHistory.appendChild(elGenerateOutcome)
     }
   }
 }
@@ -46,7 +46,7 @@ function renderInputAddOptionCategoryIncome() {
   const elInput = document.querySelector('#addOptionIncomeInput')
   elInput.value = ''
 }
-function renderInputAddOptionCategoryExpense() {
+function renderInputAddOptionCategoryOutcome() {
   const elInput = document.querySelector('#addOptionExpenseInput')
   elInput.value = ''
 }
@@ -55,7 +55,7 @@ function renderInputAddSumIncome() {
   const elInput = document.querySelector('#incomeamount')
   elInput.value = ''
 }
-function renderInputAddSumExpense() {
+function renderInputAddSumOutcome() {
   const elInput = document.querySelector('#expenseamount')
   elInput.value = ''
 }
