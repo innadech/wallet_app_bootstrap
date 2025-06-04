@@ -10,16 +10,26 @@ function handleSetCategoryOutcome(category) {
 function handleSetAmountOutcome(amount) {
   setAmountOutcome(+amount)
 }
+function handleUpdateContainerIncome() {
+  handleSetCategoryIncome('')
+  handleSetAmountIncome(0)
+  renderContainerIncomeAppender(incomeCategories, currentIncome)
+}
+function handleUpdateContainerOutcome() {
+  handleSetCategoryOutcome('')
+  handleSetAmountOutcome(0)
+  renderContainerOutcomeAppender(outcomeCategories, currentOutcome)
+}
 
 function handleAddTransactionIncome() {
-  addTransactionnFromIncome(income)
+  addTransactionnFromIncome(currentIncome)
   renderTransactionHistory(transactionHistory)
-  renderInputAddSumIncome()
+  renderInputAddSumIncome(0)
 }
 function handleAddTransactionOutcome() {
-  addTransactionnFromOutcome(outcome)
+  addTransactionnFromOutcome(currentOutcome)
   renderTransactionHistory(transactionHistory)
-  renderInputAddSumOutcome()
+  renderInputAddSumOutcome(0)
 }
 function handleRenderBalance() {
   const elBalance = getBalance()
@@ -35,16 +45,12 @@ function handleAddOptionToSelectIncome(caption, type) {
   renderSelect(incomeCategories, type)
   renderInputAddOptionCategoryIncome()
   renderCategoriesList(incomeCategories)
-  // saveCategory(category)
-  // saveCategories()
 }
 function handleAddOptionToSelectOutcome(caption, type) {
   addCategoryOutcome(caption, type)
   renderSelect(outcomeCategories, type)
   renderInputAddOptionCategoryOutcome()
   renderCategoriesList(outcomeCategories)
-  // saveCategory(category)
-  // saveCategories()
 }
 
 function handleRemoveIncomeCategories(id, type) {

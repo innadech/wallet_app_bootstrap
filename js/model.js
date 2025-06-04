@@ -4,11 +4,11 @@ let outcomeCategories = []
 
 let nextId = 1
 
-const income = {
+const currentIncome = {
   amount: 0,
   category: '',
 }
-const outcome = {
+const currentOutcome = {
   amount: 0,
   category: '',
 }
@@ -17,8 +17,8 @@ function creteTransactionFromIncome(income) {
   return {
     id: nextId++,
     type: 'income',
-    amount: income.amount,
-    category: income.category,
+    amount: currentIncome.amount,
+    category: currentIncome.category,
   }
 }
 
@@ -26,22 +26,22 @@ function creteTransactionFromOutcome(outcome) {
   return {
     id: nextId++,
     type: 'outcome',
-    amount: outcome.amount,
-    category: outcome.category,
+    amount: currentOutcome.amount,
+    category: currentOutcome.category,
   }
 }
 
 function setAmountIncome(amount) {
-  income.amount = amount
+  currentIncome.amount = amount
 }
 function setCategoryIncome(category) {
-  income.category = category
+  currentIncome.category = category
 }
 function setAmountOutcome(amount) {
-  outcome.amount = amount
+  currentOutcome.amount = amount
 }
 function setCategoryOutcome(category) {
-  outcome.category = category
+  currentOutcome.category = category
 }
 function addTransactionnFromIncome(income) {
   const transaction = creteTransactionFromIncome(income)

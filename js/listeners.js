@@ -72,6 +72,7 @@ function onClickButtonAddTransactionIncome() {
   }
   handleAddTransactionIncome(selectedOption.value, selectName)
   handleRenderBalance()
+  handleUpdateContainerIncome()
 }
 function onClickButtonAddTransactionOutcome() {
   const elSelect = document.querySelector('#outcome')
@@ -79,13 +80,20 @@ function onClickButtonAddTransactionOutcome() {
   console.log(selectedOption)
   const selectName = elSelect.name
   console.log(selectName)
-  // const elInput = document.querySelector('#expenseamount')
-
-  // const validSelect = !elSelectedOption.disabled
-  // const validInput = !!+elInput.value
-  // renderSelectRedExpense()
-  // renderInputRedExpense()
+  const elInput = document.querySelector('#expenseamount')
+  if (selectedOption.disabled) {
+    elSelect.style.border = '2px solid red'
+    return
+  } else {
+    elSelect.style.border = ''
+  }
+  if (elInput.value === '' || +elInput.value === 0) {
+    elInput.style.border = '2px solid red'
+    return
+  } else {
+    elInput.style.border = ''
+  }
   handleAddTransactionOutcome(selectedOption.value, selectName)
-
   handleRenderBalance()
+  handleUpdateContainerOutcome()
 }
